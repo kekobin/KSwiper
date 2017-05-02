@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title></title>
+	<style type="text/css">
+	html,body,div,span,ul,li{
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+	.kswiper-container{
+		position: relative;
+		width: 200px;
+		height: 100px;
+		margin: 0 auto;
+		border: 1px solid red;
+		overflow: hidden;
+		text-align: center;
+		font-size: 30px;
+		font-weight: bold;
+		color: red;
+	}
+	.kswiper-wrap{
+		position: relative;
+	}
+	.kswiper-wrap,.kswiper-item{
+		height: 100%;
+	}
+	.split{
+		height: 100px;
+	}
+	.kswiper-pagination{
+		position: absolute;
+		width: 100%;
+		bottom: 10px;
+		left: 0;
+		text-align: center;
+		z-index: 1;
+	}
+	.kswiper-pagination a{
+		width: 8px;
+	    height: 8px;
+	    display: inline-block;
+	    border-radius: 100%;
+	    background: #000;
+	    opacity: .2;
+	    cursor: pointer;
+	    margin: 0 5px;
+	}
+	.kswiper-pagination a.active{
+		opacity: 1;
+    	background: #007aff;
+	}
+	</style>
+</head>
+<body>
+	<div class="kswiper-container demo-1">
+		<div class="kswiper-wrap">
+			<div class="kswiper-item">slide 1</div>
+			<div class="kswiper-item">slide 2</div>
+			<div class="kswiper-item">slide 3</div>
+			<div class="kswiper-item">slide 4</div>
+		</div>
+		<!-- <div class="kswiper-pagination">
+			<a class="active"></a>
+			<a></a>
+			<a></a>
+			<a></a>
+		</div> -->
+	</div>
+	<div class="split"></div>
+	<div class="kswiper-container demo-1">
+		<div class="kswiper-wrap">
+			<div class="kswiper-item">slide 1</div>
+			<div class="kswiper-item">slide 2</div>
+			<div class="kswiper-item">slide 3</div>
+			<div class="kswiper-item">slide 4</div>
+		</div>
+	</div>
+
+	<button id="jump">滑动</button>
+
+	<script type="text/javascript" src="kswiper-0.1.2.js"></script>
+	<script type="text/javascript">
+		// var element = document.getElementById('demo');
+		var kswiper = new KSwiper('.demo-1', {
+			pagination: true,
+			callback: function(index) {
+				console.log(index)
+			}
+		});
+
+		var index = 1;
+
+		document.getElementById('jump').addEventListener('click', function() {
+			kswiper[0].slideTo(--index);
+		}, false);
+	</script>
+</body>
+</html>
