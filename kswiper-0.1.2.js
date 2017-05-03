@@ -16,7 +16,10 @@
 		this.index = 0;//默认开始的索引
 		this.callback = options.callback;
 
-		this.pagination = options.pagination;
+		this.pagination = !!options.pagination;
+		this.auto = !!options.auto;
+		this.autoDuration = options.autoDuration;
+		this.autoTimeout = null;
 
 		this.$container = $(element);
 
@@ -62,6 +65,14 @@
 		//设置分页
 		if(this.pagination) {
 			this.initPagination();
+		}
+
+		if(this.auto) {
+			var autoIndex = 1;
+			var _this = this;
+			this.autoTimeout = setInterval(function() {
+				_this.slideTo(autoIndex++);
+			}, this.autoDuration);
 		}
 
 		this.initEvent();
