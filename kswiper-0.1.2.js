@@ -10,7 +10,6 @@
 	var KSwiper = function(element, options) {//element可以是id、class、DOM或者标签element
 		if (!(this instanceof KSwiper)) return new KSwiper(element, options);
 		if(!element) return;
-		var _this = this;
 		this.opts = options;
 		this.speed = options.speed || 100;
 		this.index = 0;//默认开始的索引
@@ -51,16 +50,11 @@
 		this.$element.css('width', this.width * this.length + 'px');
 
 		//设置slide item的样式
-		var index = this.length;
-		while(index--) {
-			var slide = this.$slides[index];
-
-			$(slide).css({
-				'width': this.width + 'px',
-				'height': '100%',
-				'display': 'table-cell'
-			});
-		}
+		this.$slides.css({
+			'width': this.width + 'px',
+			'height': '100%',
+			'display': 'table-cell'
+		});
 
 		//设置分页
 		if(this.pagination) {
