@@ -154,6 +154,8 @@
 		if(index >= this.length) index = gap;
 		if(index < 0) index = this.length + gap - 1;
 		
+		this.index = index;
+		
 		this.$element.css({
 			'webkitTransitionDuration': duration + 'ms',
 			'MozTransitionDuration': duration + 'ms',
